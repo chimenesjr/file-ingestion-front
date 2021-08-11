@@ -1,0 +1,18 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3>
+      Start new Ingestion
+    </h3>
+  </div>
+</div>
+<div class="panel-body">
+  <div class="row">
+      <input type="text" name="context-name" id="context-name" #contextName class="form-control" placeholder="Context name" required>
+  </div>
+  <div class="row">
+    <input type="number" name="time_to_hold" id="context-name" #timeToHold class="form-control" placeholder="Time to hold" required>
+  </div>
+  <div class="row">
+    <button type="button" class="btn btn-lg btn-primary btn-block" (click)="onFileSubmit()">Submit</button>
+  </div>
+</div>

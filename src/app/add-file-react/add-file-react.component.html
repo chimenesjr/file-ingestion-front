@@ -1,0 +1,58 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3>
+      Start new Ingestion
+    </h3>
+  </div>
+</div>
+<div class="panel-body">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="context">Context Name</label>
+        <input    type="text" 
+                  formControlName="context" 
+                  class="form-control" 
+                  placeholder="Context name"
+                  [ngClass]="{ 'is-invalid': submitted && f.context.errors }"
+                  required>
+        <div *ngIf="submitted && f.context.errors" class="invalid-feedback">
+            <div *ngIf="f.context.errors.required">Context Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="context">Time to hold</label>
+        <input    type="number" 
+                  formControlName="time_to_hold" 
+                  class="form-control" 
+                  placeholder="Time to hold"
+                  [ngClass]="{ 'is-invalid': submitted && f.time_to_hold.errors }"
+                  required>
+        <div *ngIf="submitted && f.time_to_hold.errors" class="invalid-feedback">
+            <div *ngIf="f.time_to_hold.errors.required">Time to hold is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="context">Type</label>
+        <select formControlName="type" class="form-control" >
+          <option [value]="0" selected="true">Snake</option>
+          <option [value]="1">Tiger</option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="f.type.value == 1">
+        <label for="" class="context">Is Bengal Tiger?</label>
+        <input class="form-check-input form-control" type="checkbox" formControlName="is_bengal">
+      </div>
+      <div class="form-group" *ngIf="f.type.value == 0">
+        <label for="" class="context">Snake length</label>
+        <input    type="number" 
+                  formControlName="length" 
+                  class="form-control" 
+                  placeholder="length"
+                  [ngClass]="{ 'is-invalid': submitted && f.length.errors }"
+                  value="0">
+      </div>
+      <div class="row">
+        <button class="btn btn-lg btn-primary btn-block">Submit</button>
+      </div>
+  </form>
+</div>
